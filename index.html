@@ -20,7 +20,7 @@
     .sealBtn{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);z-index:6;width:122px;height:122px;border-radius:50%;border:none;cursor:pointer;color:#684d2e;background:radial-gradient(circle at 32% 30%, #fbe6a6 0, #e3be6c 24%, #cca057 55%, #b9833f 80%, #9d6f34 100%);box-shadow:inset 0 3px 6px rgba(255,255,255,.4), inset 0 -8px 10px rgba(123,83,31,.28), 0 10px 18px rgba(96,70,38,.22);font-family:'Amiri',serif;font-size:1.1rem;line-height:1.15;padding:18px 10px 12px;transition:transform .25s ease,box-shadow .25s ease}.sealBtn small{display:block;font-size:.84rem;opacity:.9}.sealBtn span{display:block;font-size:1.08rem;font-weight:700}.envOpen .env-top{transform:rotateX(180deg) translateY(-12px);opacity:.2}.envOpen .env-left{transform:translate(-22px,20px)}.envOpen .env-right{transform:translate(22px,20px)}.envOpen .sealBtn{transform:translate(-50%,-50%) scale(.88);opacity:0;pointer-events:none}
 
     .site{display:none}.site.show{display:block}
-    .sceneSection{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;background:#eadcc9}.sceneBg{position:absolute;inset:0;background:url('./hero-scene.png') center center/cover no-repeat;transform:scale(1.02);animation:kenburns 6s ease-in-out infinite alternate}.sceneShade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,248,237,.08) 0,rgba(95,66,35,.04) 55%,rgba(80,52,25,.16) 100%)}.sparkle{position:absolute;inset:0;background:radial-gradient(circle at 20% 15%, rgba(255,255,255,.45) 0 1px, transparent 2px),radial-gradient(circle at 75% 20%, rgba(255,255,255,.4) 0 1px, transparent 2px),radial-gradient(circle at 28% 72%, rgba(255,255,255,.28) 0 1px, transparent 2px),radial-gradient(circle at 80% 68%, rgba(255,255,255,.3) 0 1px, transparent 2px);background-size:170px 170px,220px 220px,190px 190px,240px 240px;opacity:.65;animation:floaty 7s linear infinite}.sceneContent{position:relative;z-index:2;text-align:center;padding:20px 16px 34px;width:min(100%,760px)}.sceneBadge{display:inline-block;padding:10px 18px;border-radius:999px;background:rgba(255,252,246,.7);backdrop-filter:blur(6px);color:#8d6b45;font-family:'Amiri',serif;font-size:1.04rem;box-shadow:var(--shadow)}.sceneArrow{margin-top:16px;font-size:1.05rem;color:#f7ecd9}.sceneArrow b{display:block;font-weight:700}.musicMsg{margin-top:12px;text-align:center;color:#f6ebda;font-size:.92rem;text-shadow:0 1px 8px rgba(0,0,0,.2)}
+    .sceneSection{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;background:#eadcc9}.sceneVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);animation:kenburns 6s ease-in-out infinite alternate;background:#eadcc9}.sceneShade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,248,237,.08) 0,rgba(95,66,35,.04) 55%,rgba(80,52,25,.16) 100%)}.sparkle{position:absolute;inset:0;background:radial-gradient(circle at 20% 15%, rgba(255,255,255,.45) 0 1px, transparent 2px),radial-gradient(circle at 75% 20%, rgba(255,255,255,.4) 0 1px, transparent 2px),radial-gradient(circle at 28% 72%, rgba(255,255,255,.28) 0 1px, transparent 2px),radial-gradient(circle at 80% 68%, rgba(255,255,255,.3) 0 1px, transparent 2px);background-size:170px 170px,220px 220px,190px 190px,240px 240px;opacity:.65;animation:floaty 7s linear infinite}.sceneContent{position:relative;z-index:2;text-align:center;padding:20px 16px 34px;width:min(100%,760px)}.sceneBadge{display:inline-block;padding:10px 18px;border-radius:999px;background:rgba(255,252,246,.7);backdrop-filter:blur(6px);color:#8d6b45;font-family:'Amiri',serif;font-size:1.04rem;box-shadow:var(--shadow)}.sceneArrow{margin-top:16px;font-size:1.05rem;color:#f7ecd9}.sceneArrow b{display:block;font-weight:700}.musicMsg{margin-top:12px;text-align:center;color:#f6ebda;font-size:.92rem;text-shadow:0 1px 8px rgba(0,0,0,.2)}
     @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.09)}}@keyframes floaty{from{transform:translateY(0)}to{transform:translateY(18px)}}
 
     .section{padding:46px 18px 18px;max-width:980px;margin:auto}.card{background:linear-gradient(180deg,rgba(250,244,236,.96),rgba(244,234,223,.98));border:1px solid rgba(190,157,117,.34);border-radius:32px;box-shadow:var(--shadow);padding:28px 20px}.sectionTitle{text-align:center;font-family:'Amiri',serif;font-size:clamp(2rem,8vw,3.1rem);color:#9f7743;margin:0 0 8px}.divider{display:flex;align-items:center;gap:10px;justify-content:center;color:var(--gold-soft);margin:0 0 20px}.divider::before,.divider::after{content:'';display:block;width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-soft),transparent)}.divider span{font-size:1.25rem;line-height:1}
@@ -48,7 +48,7 @@
 
   <main class="site" id="site">
     <section class="sceneSection" id="sceneSection">
-      <div class="sceneBg"></div>
+      <video id="sceneVideo" class="sceneVideo" src="./hero-gold.mp4" muted playsinline preload="auto" loop></video>
       <div class="sceneShade"></div>
       <div class="sparkle"></div>
       <div class="sceneContent">
@@ -109,6 +109,7 @@
     const musicBtn=document.getElementById('musicBtn');
     const musicMsg=document.getElementById('musicMsg');
     const details=document.getElementById('details');
+    const sceneVideo=document.getElementById('sceneVideo');
     let autoScrolled=false;
     music.loop=true;
     music.addEventListener('ended',()=>{music.currentTime=0; music.play().catch(()=>{});});
@@ -136,6 +137,11 @@
       setTimeout(()=>{
         introScene.classList.add('hidden');
         site.classList.add('show');
+        if(sceneVideo){
+          sceneVideo.currentTime=0;
+          sceneVideo.muted=true;
+          sceneVideo.play().catch(()=>{});
+        }
         window.scrollTo({top:0,behavior:'instant'});
         setTimeout(()=>{
           if(!autoScrolled){details.scrollIntoView({behavior:'smooth',block:'start'}); autoScrolled=true;}
