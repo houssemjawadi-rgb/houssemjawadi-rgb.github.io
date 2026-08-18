@@ -48,7 +48,7 @@
 
   <main class="site" id="site">
     <section class="sceneSection" id="sceneSection">
-      <video id="sceneVideo" class="sceneVideo" src="./hero-gold.mp4" muted playsinline preload="auto" loop></video>
+      <video id="sceneVideo" class="sceneVideo" src="./hero-gold.mp4" autoplay muted playsinline webkit-playsinline preload="auto" loop></video>
       <div class="sceneShade"></div>
       <div class="sparkle"></div>
       <div class="sceneContent">
@@ -133,15 +133,22 @@
     }
     openInvite.addEventListener('click',()=>{
       envelope.classList.add('envOpen');
+
+      // IMPORTANT FOR iPhone/Safari: reveal and start the muted video
+      // immediately inside the user's tap gesture. Delaying play() can make
+      // Safari freeze on the first frame.
+      site.classList.add('show');
+      if(sceneVideo){
+        sceneVideo.muted=true;
+        sceneVideo.currentTime=0;
+        sceneVideo.load();
+        const vp=sceneVideo.play();
+        if(vp && typeof vp.catch==='function') vp.catch(()=>{});
+      }
+
       startMusic();
       setTimeout(()=>{
         introScene.classList.add('hidden');
-        site.classList.add('show');
-        if(sceneVideo){
-          sceneVideo.currentTime=0;
-          sceneVideo.muted=true;
-          sceneVideo.play().catch(()=>{});
-        }
         window.scrollTo({top:0,behavior:'instant'});
         setTimeout(()=>{
           if(!autoScrolled){details.scrollIntoView({behavior:'smooth',block:'start'}); autoScrolled=true;}
